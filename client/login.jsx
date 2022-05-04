@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { LoginContext } from "./globals/LoginContext.jsx";
+import { AppContext } from "./globals/AppContext.jsx";
 
 function Login({ config }) {
   return (
@@ -42,7 +42,7 @@ function LoginButton({ config, label }) {
 function LoginCallback({ reload }) {
   const [error, setError] = useState();
   const navigate = useNavigate();
-  const { registerLogin } = useContext(LoginContext);
+  const { registerLogin } = useContext(AppContext);
 
   useEffect(async () => {
     const { access_token, state } = Object.fromEntries(
@@ -97,7 +97,7 @@ function LoginCallback({ reload }) {
 
 function LogOut({ reload }) {
   const navigate = useNavigate();
-  const { logout } = useContext(LoginContext);
+  const { logout } = useContext(AppContext);
   useEffect(async () => {
     await logout();
     reload();

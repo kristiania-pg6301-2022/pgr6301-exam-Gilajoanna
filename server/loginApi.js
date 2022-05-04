@@ -21,7 +21,7 @@ async function configuration() {
   };
 }
 
-async function fetchUser(access_token, config) {
+async function fetchUserInfo(access_token, config) {
   const userinfo = await fetch(config.userinfo_endpoint, {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -45,9 +45,8 @@ export function LoginApi() {
     const config = await configuration();
     const response = { config, user: {} };
     const { access_token } = req.signedCookies;
-    console.log(access_token);
 
-    response.user = await fetchUser(access_token, config);
+    response.user = await fetchUserInfo(access_token, config);
     res.json(response);
   });
 

@@ -17,8 +17,8 @@
 * [x] Only logged-in user have access to profile, list articles and add
 
 * [ ] Refactor and clean up in code
-* [ ] Server: post articles to database (insert)
-* [ ] Client: Add new article, show new article
+* [x] Server: post articles to database (insert)
+* [x] Client: Add new article, show new article
 * [ ] Jest testing on client
 * [ ] Github actions
 * [ ] Jest testing on server

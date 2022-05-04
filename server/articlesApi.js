@@ -17,5 +17,16 @@ export function ArticlesApi(database) {
     res.json(articles);
   });
 
+  apiRouter.post("/", async (req, res) => {
+    const { title, category, content, author } = req.body;
+    await database.collection("articles").insertOne({
+      title,
+      category,
+      content,
+      author,
+    });
+    res.sendStatus(200);
+  });
+
   return apiRouter;
 }

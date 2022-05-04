@@ -1,6 +1,8 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { useLoader } from "./globals/useLoader";
 import { fetchJSON } from "./globals/fetchJSON";
+import { useContext, useState } from "react";
+import { AppContext } from "./globals/AppContext";
 
 export function ListArticles({ listAllArticles }) {
   const { loading, data, error } = useLoader(listAllArticles);
@@ -46,11 +48,59 @@ function ArticleItem({ article: { title, category, content, author } }) {
   );
 }
 
-export function AddNewArticle() {
+function FormInput({ label, value, onChangeValue }) {
   return (
     <div>
-      <h1>Add a new Article</h1>
+      <label>{label}</label>{" "}
+      <input
+        type={"text"}
+        name={"title"}
+        value={value}
+        onChange={(e) => onChangeValue(e.target.value)}
+      />
     </div>
+  );
+}
+
+export function AddNewArticle() {
+  //const navigate = useNavigate();
+  const { createArticle } = useContext(AppContext);
+
+  const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [content, setContent] = useState("");
+  const [author, setAuthor] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await createArticle({ title, category, author, content });
+
+    setTitle("");
+    setCategory("");
+    setAuthor("");
+    setContent("");
+
+    //navigate("/");
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h1>Write new article</h1>
+
+      <FormInput label={"Title:"} value={title} onChangeValue={setTitle} />
+      <FormInput
+        label={"Category:"}
+        value={category}
+        onChangeValue={setCategory}
+      />
+      <FormInput
+        label={"Content:"}
+        value={content}
+        onChangeValue={setContent}
+      />
+      <FormInput label={"Author:"} value={author} onChangeValue={setAuthor} />
+      <button type={"submit"}>Publish</button>
+    </form>
   );
 }
 

@@ -4,7 +4,7 @@ import { Articles } from "./articles";
 import { useContext } from "react";
 import { useLoader } from "./globals/useLoader";
 import { LoginPage } from "./login";
-import { LoginContext } from "./globals/LoginContext";
+import { AppContext } from "./globals/AppContext";
 import { fetchJSON } from "./globals/fetchJSON";
 
 function UserActions({ user }) {
@@ -28,10 +28,10 @@ function HomePage({ user }) {
       <h1>Home page</h1>
       {user && (
         <div>
-          <Link to={"/articles"}>List Movies</Link>
+          <Link to={"/articles"}>All articles</Link>
 
           <div>
-            <Link to={"/articles/new"}>Add new movie</Link>
+            <Link to={"/articles/new"}>Write a new article</Link>
           </div>
         </div>
       )}
@@ -76,7 +76,7 @@ function UserProfile({ user }) {
 }
 
 export function Application() {
-  const { fetchLogin } = useContext(LoginContext);
+  const { fetchLogin } = useContext(AppContext);
   const { loading, error, data, reload } = useLoader(fetchLogin);
 
   if (loading) {
