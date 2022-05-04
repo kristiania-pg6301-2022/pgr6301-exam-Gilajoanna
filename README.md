@@ -1,14 +1,14 @@
-# PG6301 eksamen <tittel på løsningen>
+# PG6301 eksamen <Express Yourself>
 
-[Heroku](link til heroku)
+[Heroku](https://pgr6301-exam-gilajoanna.herokuapp.com/)
 [Test rapport](link til testrapport)
 
 ## Plan for exam day 1
 
 * [x] Setup React application
 * [x] Prettier
-* [ ] React routing Articles
-* [ ] Deploy to Heroku
+* [x] React routing Articles
+* [x] Deploy to Heroku
 * [ ] News article database - MongoDb
   * [ ] Server: connect to mongoDB, get articles
   * [ ] Client: List articles
