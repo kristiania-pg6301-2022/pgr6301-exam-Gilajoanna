@@ -11,7 +11,7 @@ export const AppContext = React.createContext({
     return await postJSON("/api/login", login);
   },
 
-  async createArticle(article) {
+  async postArticle(article) {
     await postJSON("/api/articles", article);
   },
 

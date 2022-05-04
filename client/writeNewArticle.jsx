@@ -16,9 +16,9 @@ function FormInput({ label, value, onChangeValue }) {
   );
 }
 
-export function AddNewArticle() {
+export function WriteNewArticle() {
   //const navigate = useNavigate();
-  const { createArticle } = useContext(AppContext);
+  const { postArticle } = useContext(AppContext);
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -27,7 +27,7 @@ export function AddNewArticle() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    await createArticle({ title, category, author, content });
+    await postArticle({ title, category, author, content });
 
     setTitle("");
     setCategory("");

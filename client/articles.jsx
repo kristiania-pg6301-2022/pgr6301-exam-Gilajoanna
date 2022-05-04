@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { useLoader } from "./globals/useLoader";
 import { fetchJSON } from "./globals/fetchJSON";
-import { AddNewArticle } from "./addNewArticle";
+import { WriteNewArticle } from "./writeNewArticle";
 
 function ArticleItem({ article: { title, category, content, author } }) {
   return (
@@ -57,7 +57,7 @@ export function Articles() {
         path={""}
         element={<ListArticles listAllArticles={listAllArticles} />}
       />
-      <Route path={"new"} element={<AddNewArticle />} />
+      <Route path={"new"} element={<WriteNewArticle />} />
     </Routes>
   );
 }
