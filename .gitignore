@@ -5,3 +5,5 @@
 /client/.parcel-cache/
 /client/dist/
 /server/.env
+/client/coverage/
+/server/coverage/

@@ -19,10 +19,10 @@
 * [ ] Refactor and clean up in code
 * [x] Server: post articles to database (insert)
 * [x] Client: Add new article, show new article
-* [ ] Jest testing on client
-* [ ] Github actions
-* [ ] Jest testing on server
-* [ ] Collect coverage
+* [x] Jest testing on client
+* [x] Github actions
+* [x] Jest testing on server
+* [x] Collect coverage
 
 ## Tips
 
