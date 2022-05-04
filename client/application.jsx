@@ -1,46 +1,41 @@
 import * as React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { Articles } from "./articles";
+import { useContext } from "react";
+import { useLoader } from "./globals/useLoader";
+import { LoginPage } from "./login";
+import { LoginContext } from "./globals/LoginContext";
+import { fetchJSON } from "./globals/fetchJSON";
 
-function HomePage() {
+function UserActions({ user }) {
+  if (!user || Object.keys(user).length === 0) {
+    return <Link to={"/login"}>Login</Link>;
+  }
+
+  return (
+    <div>
+      <Link to={"/profile"}>
+        {user.name ? `Profile for ${user.name}` : "Profile"}
+      </Link>
+      <Link to={"/login/logout"}>Log out</Link>
+    </div>
+  );
+}
+
+function HomePage({ user }) {
   return (
     <div>
       <h1>Home page</h1>
-      <div>
-        <Link to={"/login"}>Login with Google</Link>
-      </div>
-      <div>
-        <Link to={"/articles"}>List all articles</Link>
-      </div>
-      <div>
-        <Link to={"/articles/new"}>Write a new article</Link>
-      </div>
-    </div>
-  );
-}
+      {user && (
+        <div>
+          <Link to={"/articles"}>List Movies</Link>
 
-function Login() {
-  return (
-    <div>
-      <h1>Login</h1>
+          <div>
+            <Link to={"/articles/new"}>Add new movie</Link>
+          </div>
+        </div>
+      )}
     </div>
-  );
-}
-
-function LoginCallback() {
-  return (
-    <div>
-      <h1>Login Callback</h1>
-    </div>
-  );
-}
-
-export function LoginPage() {
-  return (
-    <Routes>
-      <Route path={""} element={<Login />} />
-      <Route path={"/callback"} element={<LoginCallback />} />
-    </Routes>
   );
 }
 
@@ -55,22 +50,62 @@ function NotFound() {
   );
 }
 
-function UserProfile() {
+function UserProfile({ user }) {
+  const { loading, error } = useLoader(async () => {
+    return await fetchJSON("/api/login");
+  });
+
+  if (loading) {
+    return <div>Loading..</div>;
+  }
+
+  if (error) {
+    return <div>Error! {error.toString()}</div>;
+  }
+
   return (
     <div>
-      <h1>User Profile</h1>
+      <h1>
+        Profile for {user.name} ({user.email}){" "}
+      </h1>
+      <div>
+        <img src={user.picture} alt={"Profile picture"} />
+      </div>
     </div>
   );
 }
 
 export function Application() {
+  const { fetchLogin } = useContext(LoginContext);
+  const { loading, error, data, reload } = useLoader(fetchLogin);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>{error.toString()}</div>;
+  }
   return (
     <BrowserRouter>
+      {data.user && (
+        <div>
+          <Link to={"/"}>Home page</Link>
+          <div>
+            <Link to={"/articles"}>Articles</Link>
+          </div>
+        </div>
+      )}
+      <div>
+        <UserActions user={data?.user} />
+      </div>
       <Routes>
-        <Route path={"/"} element={<HomePage />} />
+        <Route path={"/"} element={<HomePage user={data.user} />} />
         <Route path={"/articles/*"} element={<Articles />} />
-        <Route path={"/login/*"} element={<LoginPage />} />
-        <Route path={"/profile"} element={<UserProfile />} />
+        <Route
+          path={"/login/*"}
+          element={<LoginPage config={data.config} reload={reload} />}
+        />
+        <Route path={"/profile"} element={<UserProfile user={data.user} />} />
         <Route path={"/*"} element={<NotFound />} />
       </Routes>
     </BrowserRouter>

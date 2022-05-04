@@ -1,6 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { useLoader } from "./useLoader";
-import { fetchJSON } from "./fetchJSON";
+import { useLoader } from "./globals/useLoader";
+import { fetchJSON } from "./globals/fetchJSON";
 
 export function ListArticles({ listAllArticles }) {
   const { loading, data, error } = useLoader(listAllArticles);
