@@ -55,7 +55,7 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 * [ ] En bruker som er logget inn kan klikke på en nyhetssak for å se detaljene om nyhetssaken. 
   * [ ] Detaljene skal inkludere en nyhetskategori, overskrift, tekst og navn på den som publiserte den
 * [ ] "Redaksjonelle brukere" kan logge seg inn med Active Directory. Det må fungere å logge seg inn med en Active Directory på skolens AD ( domain_hint=egms.no )
-* [ ] Redaksjonelle brukere kan publisere nye nyhetsartikler
+* [x] Redaksjonelle brukere kan publisere nye nyhetsartikler
 * [ ] Nyhetsartikkel skal inneholde en kategori valgt fra en nedtrekksliste ( <select> ), tittel ( <input> ) og tekst ( <textarea> )
 * [ ] Dersom noen allerede har publisert en nyhetsartikkel med samme tittel skal serveren sende HTTP status kode 400 og en feilmelding
 * [ ] Brukeren skal forhindres fra å sende inn en nyhetsartikkel som mangler kategori, tittel eller tekst
@@ -72,13 +72,13 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 * [x] Serveren validerer at brukeren er logget inn
 * [ ] Innleveringen skal være i form av en ZIP-fil. Maks størrelse på fila er 1MB Artikler skal lagres i MongoDB
 * [x] Applikasjonen skal deployes til Heroku
-* [ ] Testene skal kjøre på Github Actions
+* [x] Testene skal kjøre på Github Actions
 
 
 ## Bør-krav til teknisk løsning
-* [ ] Github Actions bør beregne testcoverage. Testdekningen bør være over 50%. Bruk collectCoverage för att inkludera alle filer. Kun genererte filer som coverage og dist skal ekskluderes.
-* [ ] Vi har fått en rabattkode som gjør det mulig å benytter coveralls. Du kan bruke denne eller
-* [ ] Brukeren ser kun menyvalg som de har tilgang til
+* [x] Github Actions bør beregne testcoverage. Testdekningen bør være over 50%. Bruk collectCoverage för att inkludera alle filer. Kun genererte filer som coverage og dist skal ekskluderes.
+* [x] Vi har fått en rabattkode som gjør det mulig å benytter coveralls. Du kan bruke denne eller
+* [x] Brukeren ser kun menyvalg som de har tilgang til
 * [ ] Brukere som går til en side de ikke har tilgang til blir bedt om å logge inn 
 * [ ] Brukere bør alltid se listen over artikler når de navigerer seg rundt på sidene
 
@@ -101,6 +101,6 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
 * [ ] Web Sockets
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
-* [ ] Jest med dokumentert testdekning
+* [x] Jest med dokumentert testdekning
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
  
