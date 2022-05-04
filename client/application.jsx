@@ -90,22 +90,19 @@ export function Application() {
       {data.user && (
         <div>
           <Link to={"/"}>Home page</Link>
-          <div>
-            <Link to={"/articles"}>Articles</Link>
-          </div>
         </div>
       )}
       <div>
         <UserActions user={data?.user} />
       </div>
       <Routes>
-        <Route path={"/"} element={<HomePage user={data.user} />} />
+        <Route path={"/"} element={<HomePage user={data?.user} />} />
         <Route path={"/articles/*"} element={<Articles />} />
         <Route
           path={"/login/*"}
           element={<LoginPage config={data.config} reload={reload} />}
         />
-        <Route path={"/profile"} element={<UserProfile user={data.user} />} />
+        <Route path={"/profile"} element={<UserProfile user={data?.user} />} />
         <Route path={"/*"} element={<NotFound />} />
       </Routes>
     </BrowserRouter>

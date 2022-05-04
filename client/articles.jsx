@@ -1,38 +1,8 @@
 import * as React from "react";
-import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { useLoader } from "./globals/useLoader";
 import { fetchJSON } from "./globals/fetchJSON";
-import { useContext, useState } from "react";
-import { AppContext } from "./globals/AppContext";
-
-export function ListArticles({ listAllArticles }) {
-  const { loading, data, error } = useLoader(listAllArticles);
-
-  if (loading) {
-    return <div>Please wait..</div>;
-  }
-
-  if (error) {
-    return (
-      <div>
-        <h1>An error occurred</h1>
-        <div id="error-text">
-          Something went wrong. Please <Link to={"/articles"}>try again</Link>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <h1>List of articles</h1>
-
-      {data.map((article) => (
-        <ArticleItem key={article.title} article={article} />
-      ))}
-    </div>
-  );
-}
+import { AddNewArticle } from "./addNewArticle";
 
 function ArticleItem({ article: { title, category, content, author } }) {
   return (
@@ -49,59 +19,30 @@ function ArticleItem({ article: { title, category, content, author } }) {
   );
 }
 
-function FormInput({ label, value, onChangeValue }) {
-  return (
-    <div>
-      <label>{label}</label>{" "}
-      <input
-        type={"text"}
-        name={"title"}
-        value={value}
-        onChange={(e) => onChangeValue(e.target.value)}
-      />
-    </div>
-  );
-}
+export function ListArticles({ listAllArticles }) {
+  const { loading, data, error } = useLoader(listAllArticles);
 
-export function AddNewArticle() {
-  //const navigate = useNavigate();
-  const { createArticle } = useContext(AppContext);
+  if (loading) {
+    return <div>Please wait..</div>;
+  }
 
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [content, setContent] = useState("");
-  const [author, setAuthor] = useState("");
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    await createArticle({ title, category, author, content });
-
-    setTitle("");
-    setCategory("");
-    setAuthor("");
-    setContent("");
-
-    //navigate("/");
+  if (error) {
+    return (
+      <div>
+        <h1>An error occurred</h1>
+        <div id="error-message">Something went wrong. Please try again.</div>
+      </div>
+    );
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Write new article</h1>
+    <div>
+      <h1>List of articles</h1>
 
-      <FormInput label={"Title:"} value={title} onChangeValue={setTitle} />
-      <FormInput
-        label={"Category:"}
-        value={category}
-        onChangeValue={setCategory}
-      />
-      <FormInput
-        label={"Content:"}
-        value={content}
-        onChangeValue={setContent}
-      />
-      <FormInput label={"Author:"} value={author} onChangeValue={setAuthor} />
-      <button type={"submit"}>Publish</button>
-    </form>
+      {data.map((article) => (
+        <ArticleItem key={article.title} article={article} />
+      ))}
+    </div>
   );
 }
 
@@ -109,6 +50,7 @@ export function Articles() {
   async function listAllArticles() {
     return await fetchJSON("/api/articles");
   }
+
   return (
     <Routes>
       <Route

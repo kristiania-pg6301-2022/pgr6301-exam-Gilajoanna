@@ -21,7 +21,7 @@ export function ArticlesApi(database) {
     const { title, category, content, author } = req.body;
     await database.collection("articles").insertOne({
       title,
-      category,
+      categories: [category],
       content,
       author,
     });

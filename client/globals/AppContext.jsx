@@ -16,9 +16,11 @@ export const AppContext = React.createContext({
   },
 
   async logout() {
-    const res = await fetch("/api/login/logout", { method: "DELETE" });
-    if (!res.ok) {
-      throw new Error(`Failed to post ${res.status}: ${res.statusText}`);
+    const response = await fetch("/api/login/logout", { method: "DELETE" });
+    if (!response.ok) {
+      throw new Error(
+        `Failed to post ${response.status}: ${response.statusText}`
+      );
     }
   },
 });
