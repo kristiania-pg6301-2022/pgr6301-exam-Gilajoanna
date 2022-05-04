@@ -24,10 +24,42 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 
 ## Egenutfylling av funksjonelle krav
 
-* [ ] *legg inn krav fra eksamentekst*
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
-* [ ] *legg inn krav fra eksamentekst*
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
+*beskriv eventuelle mangler eller problemer for delvis uttelling*
+
+* [ ] Anonyme brukere skal se nyhetsaker når de kommer til nettsiden. Legg inn noen nyhetssaker for å demonstrere
+* [ ] Når en ny sak publiseres, skal alle brukerne få se den nye saken umiddelbart. Bruk websockets for å sende oppdateringer
+* [ ] Brukere kan logge seg inn. Det anbefales at du implementerer at brukerne logger seg inn med Google, men andre mekanismer er også akseptabelt
+* [ ] En bruker som er logget inn kan se på sin profilside (userinfo fra Google)
+* [ ] Brukere skal forbli logget inn når de refresher websiden
+* [ ] En bruker som er logget inn kan klikke på en nyhetssak for å se detaljene om nyhetssaken. 
+  * [ ] Detaljene skal inkludere en nyhetskategori, overskrift, tekst og navn på den som publiserte den
+* [ ] "Redaksjonelle brukere" kan logge seg inn med Active Directory. Det må fungere å logge seg inn med en Active Directory på skolens AD ( domain_hint=egms.no )
+* [ ] Redaksjonelle brukere kan publisere nye nyhetsartikler
+* [ ] Nyhetsartikkel skal inneholde en kategori valgt fra en nedtrekksliste ( <select> ), tittel ( <input> ) og tekst ( <textarea> )
+* [ ] Dersom noen allerede har publisert en nyhetsartikkel med samme tittel skal serveren sende HTTP status kode 400 og en feilmelding
+* [ ] Brukeren skal forhindres fra å sende inn en nyhetsartikkel som mangler kategori, tittel eller tekst
+* [ ] En redaksjonell bruker skal kunne redigere en artikkel de selv har publisert
+* [ ] Alle feil fra serves skal presenteres til bruker på en pen måte, med mulighet for brukeren til å prøve igjen.
+
+
+## Må-krav til teknisk løsning
+* [ ] Besvarelsen skal inneholde en README-fil med link til Heroku og test coverage skal starte server og klient. Concurrently og parcel anbefales
+* [ ] CollectCoverage skal kjøre tester. Testene skal ikke feile
+* [ ] Koden skal ha konsistent formattering. Prettier og Husky anbefales
+* [ ] Nettsidene skal ha god layout med CSS Grid (Holy Grail layout) og horisontal navigasjonsmeny. Brukeren må kunne navigere overalt uten å bruke "back" eller redigere URL
+* [ ] Serveren validerer at brukeren er logget inn
+* [ ] Innleveringen skal være i form av en ZIP-fil. Maks størrelse på fila er 1MB Artikler skal lagres i MongoDB
+* [ ] Applikasjonen skal deployes til Heroku
+* [ ] Testene skal kjøre på Github Actions
+
+
+## Bør-krav til teknisk løsning
+* [ ] Github Actions bør beregne testcoverage. Testdekningen bør være over 50%. Bruk collectCoverage för att inkludera alle filer. Kun genererte filer som coverage og dist skal ekskluderes.
+* [ ] Vi har fått en rabattkode som gjør det mulig å benytter coveralls. Du kan bruke denne eller
+* [ ] Brukeren ser kun menyvalg som de har tilgang til
+* [ ] Brukere som går til en side de ikke har tilgang til blir bedt om å logge inn 
+* [ ] Brukere bør alltid se listen over artikler når de navigerer seg rundt på sidene
+
 
 ## Egenutfylling av tekniske krav
 
