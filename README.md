@@ -5,8 +5,8 @@
 
 ## Plan for exam day 1
 
-* [ ] Setup React application
-* [ ] Prettier
+* [x] Setup React application
+* [x] Prettier
 * [ ] React routing Articles
 * [ ] Deploy to Heroku
 * [ ] News article database - MongoDb
