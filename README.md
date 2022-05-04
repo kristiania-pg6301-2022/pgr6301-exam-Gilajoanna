@@ -3,6 +3,18 @@
 [Heroku](link til heroku)
 [Test rapport](link til testrapport)
 
+## Plan for exam day 1
+
+* [ ] Setup React application
+* [ ] Prettier
+* [ ] React routing Articles
+* [ ] Deploy to Heroku
+* [ ] News article database - MongoDb
+  * [ ] Server: connect to mongoDB, get articles
+  * [ ] Client: List articles
+* [ ] React routing Login
+  Lunch 1h
+
 ## Tips
 
 * Bruk versjoner av alle dependencies som vi brukte på forelesningene. Det skjer hele tiden endringer i JavaScript-land og noen ganger vil siste versjon oppføre seg forskjellig - ikke kast bort verdifull eksamenstid. Du kan kopiere package.json fra innlevering eller en øving
