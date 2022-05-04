@@ -9,7 +9,7 @@
 * [x] Prettier
 * [x] React routing Articles
 * [x] Deploy to Heroku
-* [ ] News article database - MongoDb
+* [x] News article database - MongoDb
   * [ ] Server: connect to mongoDB, get articles
   * [ ] Client: List articles
 * [ ] React routing Login
