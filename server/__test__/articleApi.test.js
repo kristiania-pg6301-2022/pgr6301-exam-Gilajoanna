@@ -31,4 +31,11 @@ describe("Test article api", function () {
       )
     ).toContain("Test article");
   });
+
+  it("Post new article", async () => {
+    const article = {
+      title: "Article",
+    };
+    expect(await request(app).post("/api/articles").send(article).expect(200));
+  });
 });
