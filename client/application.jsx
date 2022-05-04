@@ -69,7 +69,7 @@ function UserProfile({ user }) {
         Profile for {user.name} ({user.email}){" "}
       </h1>
       <div>
-        <img src={user.picture} alt={"Profile picture"} />
+        <img src={user.picture} alt={"Profile image"} />
       </div>
     </div>
   );
