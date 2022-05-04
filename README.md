@@ -10,10 +10,11 @@
 * [x] React routing Articles
 * [x] Deploy to Heroku
 * [x] News article database - MongoDb
-  * [ ] Server: connect to mongoDB, get articles
-  * [ ] Client: List articles
+  * [x] Server: connect to mongoDB, get articles
+  * [x] Client: List articles
+  * [ ] Server: post articles to database (insert)
+  * [ ] Client: Add new article, show new article
 * [ ] React routing Login
-  Lunch 1h
 
 ## Tips
 

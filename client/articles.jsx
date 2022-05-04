@@ -2,21 +2,6 @@ import { Link, Route, Routes } from "react-router-dom";
 import { useLoader } from "./useLoader";
 import { fetchJSON } from "./fetchJSON";
 
-function ArticleItem({ article: { title, category, content, author } }) {
-  return (
-    <div>
-      <h2>{title}</h2>
-      <div>
-        <strong>{category}</strong>
-      </div>
-      <div>
-        Author: <i>{author}</i>
-      </div>
-      <div>{content}</div>
-    </div>
-  );
-}
-
 export function ListArticles({ listAllArticles }) {
   const { loading, data, error } = useLoader(listAllArticles);
 
@@ -42,6 +27,21 @@ export function ListArticles({ listAllArticles }) {
       {data.map((article) => (
         <ArticleItem key={article.title} article={article} />
       ))}
+    </div>
+  );
+}
+
+function ArticleItem({ article: { title, category, content, author } }) {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <div>
+        <strong>{category}</strong>
+      </div>
+      <div>
+        Author: <i>{author}</i>
+      </div>
+      <div>{content}</div>
     </div>
   );
 }
