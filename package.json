@@ -1,0 +1,25 @@
+{
+  "name": "pgr6301-exam-gilajoanna",
+  "version": "1.0.0",
+  "description": "[Heroku](link til heroku) [Test rapport](link til testrapport)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna/issues"
+  },
+  "homepage": "https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna#readme",
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.6.2"
+  }
+}
