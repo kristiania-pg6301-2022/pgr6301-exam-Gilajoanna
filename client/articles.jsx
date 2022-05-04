@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import { useLoader } from "./globals/useLoader";
 import { fetchJSON } from "./globals/fetchJSON";
