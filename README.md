@@ -12,9 +12,17 @@
 * [x] News article database - MongoDb
   * [x] Server: connect to mongoDB, get articles
   * [x] Client: List articles
-  * [ ] Server: post articles to database (insert)
-  * [ ] Client: Add new article, show new article
-* [ ] React routing Login
+* [x] React routing Login
+* [x] Set up login in with Google
+* [x] Only logged-in user have access to profile, list articles and add
+
+* [ ] Refactor and clean up in code
+* [ ] Server: post articles to database (insert)
+* [ ] Client: Add new article, show new article
+* [ ] Jest testing on client
+* [ ] Github actions
+* [ ] Jest testing on server
+* [ ] Collect coverage
 
 ## Tips
 
@@ -41,9 +49,9 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 
 * [ ] Anonyme brukere skal se nyhetsaker når de kommer til nettsiden. Legg inn noen nyhetssaker for å demonstrere
 * [ ] Når en ny sak publiseres, skal alle brukerne få se den nye saken umiddelbart. Bruk websockets for å sende oppdateringer
-* [ ] Brukere kan logge seg inn. Det anbefales at du implementerer at brukerne logger seg inn med Google, men andre mekanismer er også akseptabelt
-* [ ] En bruker som er logget inn kan se på sin profilside (userinfo fra Google)
-* [ ] Brukere skal forbli logget inn når de refresher websiden
+* [x] Brukere kan logge seg inn. Det anbefales at du implementerer at brukerne logger seg inn med Google, men andre mekanismer er også akseptabelt
+* [x] En bruker som er logget inn kan se på sin profilside (userinfo fra Google)
+* [x] Brukere skal forbli logget inn når de refresher websiden
 * [ ] En bruker som er logget inn kan klikke på en nyhetssak for å se detaljene om nyhetssaken. 
   * [ ] Detaljene skal inkludere en nyhetskategori, overskrift, tekst og navn på den som publiserte den
 * [ ] "Redaksjonelle brukere" kan logge seg inn med Active Directory. Det må fungere å logge seg inn med en Active Directory på skolens AD ( domain_hint=egms.no )
@@ -56,13 +64,14 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 
 
 ## Må-krav til teknisk løsning
-* [ ] Besvarelsen skal inneholde en README-fil med link til Heroku og test coverage skal starte server og klient. Concurrently og parcel anbefales
-* [ ] CollectCoverage skal kjøre tester. Testene skal ikke feile
-* [ ] Koden skal ha konsistent formattering. Prettier og Husky anbefales
+* [ ] Besvarelsen skal inneholde en README-fil med link til Heroku og test coverage. 
+* [x] npm start skal starte server og klient. Concurrently og parcel anbefales
+* [x] npm test skal kjøre tester. Testene skal ikke feile
+* [x] Koden skal ha konsistent formattering. Prettier og Husky anbefales
 * [ ] Nettsidene skal ha god layout med CSS Grid (Holy Grail layout) og horisontal navigasjonsmeny. Brukeren må kunne navigere overalt uten å bruke "back" eller redigere URL
-* [ ] Serveren validerer at brukeren er logget inn
+* [x] Serveren validerer at brukeren er logget inn
 * [ ] Innleveringen skal være i form av en ZIP-fil. Maks størrelse på fila er 1MB Artikler skal lagres i MongoDB
-* [ ] Applikasjonen skal deployes til Heroku
+* [x] Applikasjonen skal deployes til Heroku
 * [ ] Testene skal kjøre på Github Actions
 
 
@@ -76,19 +85,19 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 
 ## Egenutfylling av tekniske krav
 
-* [ ] Oppsett av package.json, parcel, express, prettier
+* [x] Oppsett av package.json, parcel, express, prettier
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
-* [ ] React Router
+* [x] React Router
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
-* [ ] Express app
+* [x] Express app
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
-* [ ] Kommunikasjon mellom frontend (React) og backend (Express)
+* [x] Kommunikasjon mellom frontend (React) og backend (Express)
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
-* [ ] Deployment til Heroku
+* [x] Deployment til Heroku
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
-* [ ] Bruk av MongoDB
+* [x] Bruk av MongoDB
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
-* [ ] OpenID Connect
+* [x] OpenID Connect
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
 * [ ] Web Sockets
   * *beskriv eventuelle mangler eller problemer for delvis uttelling*
