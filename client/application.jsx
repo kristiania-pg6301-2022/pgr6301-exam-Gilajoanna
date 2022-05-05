@@ -9,6 +9,7 @@ import { LoginPage } from "./login";
 import { AppContext } from "./globals/AppContext";
 import { fetchJSON } from "./globals/fetchJSON";
 import { UserProfile } from "./components/userProfile";
+import { NotFound } from "./components/notFound";
 
 function UserNavigation({ user }) {
   if (!user || Object.keys(user).length === 0) {
@@ -54,17 +55,6 @@ function HomePage({ user }) {
         </div>
       )}
     </>
-  );
-}
-
-function NotFound() {
-  return (
-    <div>
-      <h1>Page not found</h1>
-      <div>
-        <Link to={"/"}>Back to home page</Link>
-      </div>
-    </div>
   );
 }
 
