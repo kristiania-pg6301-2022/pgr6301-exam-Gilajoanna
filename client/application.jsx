@@ -1,13 +1,14 @@
 import * as React from "react";
+import { useContext } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { Articles, ListArticles } from "./articles";
 
 import "./style.css";
-import { useContext } from "react";
 import { useLoader } from "./globals/useLoader";
 import { LoginPage } from "./login";
 import { AppContext } from "./globals/AppContext";
 import { fetchJSON } from "./globals/fetchJSON";
+import { UserProfile } from "./components/userProfile";
 
 function UserNavigation({ user }) {
   if (!user || Object.keys(user).length === 0) {
@@ -37,6 +38,11 @@ function HomePage({ user }) {
 
   return (
     <>
+      {!user && (
+        <div>
+          <div>Please log in to have access to articles.</div>
+        </div>
+      )}
       {user && (
         <div>
           <div>
@@ -57,31 +63,6 @@ function NotFound() {
       <h1>Page not found</h1>
       <div>
         <Link to={"/"}>Back to home page</Link>
-      </div>
-    </div>
-  );
-}
-
-function UserProfile({ user }) {
-  const { loading, error } = useLoader(async () => {
-    return await fetchJSON("/api/login");
-  });
-
-  if (loading) {
-    return <div>Loading..</div>;
-  }
-
-  if (error) {
-    return <div>Error! {error.toString()}</div>;
-  }
-
-  return (
-    <div>
-      <h1>
-        Profile for {user.name} ({user.email}){" "}
-      </h1>
-      <div>
-        <img src={user.picture} alt={"Profile image"} />
       </div>
     </div>
   );

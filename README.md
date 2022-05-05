@@ -80,7 +80,7 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 * [x] npm start skal starte server og klient. Concurrently og parcel anbefales
 * [x] npm test skal kjøre tester. Testene skal ikke feile
 * [x] Koden skal ha konsistent formattering. Prettier og Husky anbefales
-* [ ] Nettsidene skal ha god layout med CSS Grid (Holy Grail layout) og horisontal navigasjonsmeny. Brukeren må kunne navigere overalt uten å bruke "back" eller redigere URL
+* [x] Nettsidene skal ha god layout med CSS Grid (Holy Grail layout) og horisontal navigasjonsmeny. Brukeren må kunne navigere overalt uten å bruke "back" eller redigere URL
 * [x] Serveren validerer at brukeren er logget inn
 * [ ] Innleveringen skal være i form av en ZIP-fil. Maks størrelse på fila er 1MB Artikler skal lagres i MongoDB
 * [x] Applikasjonen skal deployes til Heroku
