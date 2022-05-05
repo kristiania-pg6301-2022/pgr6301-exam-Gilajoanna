@@ -2,6 +2,8 @@
 
 [Heroku](https://pgr6301-exam-gilajoanna.herokuapp.com)
 [Test rapport](https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna/commit/e06a2f62ec9b76c08045a90d0cdc8e21df31a24e#commitcomment-72929877)
+ 
+[![.github/workflows/verify.yaml](https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna/actions/workflows/verify.yaml/badge.svg)](https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna/actions/workflows/verify.yaml)
 
 ## Plan for exam day 2
 * [x] Holy grail layout
