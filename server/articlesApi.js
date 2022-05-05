@@ -31,8 +31,6 @@ export function ArticlesApi(database) {
   apiRouter.delete("/delete", async (req, res) => {
     const { title } = req.body;
     await database.collection("articles").deleteOne({ title });
-    console.log("Article deleted");
-    console.log(title);
     res.sendStatus(200);
   });
 
