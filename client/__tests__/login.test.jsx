@@ -1,6 +1,6 @@
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import { LoginPage } from "../login";
+import { LoginPage } from "../components/login";
 import { MemoryRouter } from "react-router-dom";
 
 describe("Login", () => {

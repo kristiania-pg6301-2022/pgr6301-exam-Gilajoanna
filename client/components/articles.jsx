@@ -24,7 +24,7 @@ export function ArticleItem({
         <strong>{category}</strong>
       </div>
       <div>
-        Author: <i>{author}</i>
+        Writer: <i>{author}</i>
       </div>
       <div>{content}</div>
       <button type={"submit"} onClick={handleSubmit}>

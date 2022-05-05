@@ -2,6 +2,8 @@
 
 exports[`List articles component renders ListArticle 1`] = `"<div>Please wait..</div>"`;
 
-exports[`List articles component shows error 1`] = `"<div><h1>An error occurred</h1><div id=\\"error-message\\">Something went wrong. Please try again.</div></div>"`;
+exports[`List articles component shows error in article list 1`] = `"<div><h1>An error occurred</h1><div id=\\"error-message\\">Something went wrong. Please try again.</div></div>"`;
 
-exports[`List articles component shows list of articles 1`] = `"<div><div><h2>Article</h2><div><strong></strong></div><div>Author: <i></i></div><div></div><button type=\\"submit\\">Delete Article</button></div></div>"`;
+exports[`List articles component shows error in aside article list 1`] = `"<div><h1>An error occurred</h1><div id=\\"error-message\\">Something went wrong. Please try again.</div></div>"`;
+
+exports[`List articles component shows list of articles 1`] = `"<div><div><h2>Article</h2><div><strong></strong></div><div>Writer: <i></i></div><div></div><button type=\\"submit\\">Delete Article</button></div></div>"`;

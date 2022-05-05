@@ -33,7 +33,7 @@ function LoginButton({ config, label }) {
   );
 }
 
-function LoginCallback({ reload }) {
+export function LoginCallback({ reload }) {
   const [error, setError] = useState();
   const navigate = useNavigate();
   const { registerLogin } = useContext(AppContext);
@@ -68,7 +68,7 @@ function LoginCallback({ reload }) {
     return (
       <div>
         <h1>Error</h1>
-        <div>Something went wrong. Error: {error}</div>
+        <div id={"error-message"}>Something went wrong. Error: {error}</div>
       </div>
     );
   }

@@ -25,11 +25,12 @@ export function WriteNewArticle() {
   const [author, setAuthor] = useState("");
 
   async function handleSubmit(e) {
-    e.preventDefault();
-
     if (!title || !category || !author || !content) {
       alert("One or more inputs are empty. Please try again.");
+      return <div>One or more inputs are empty. Please try again.</div>;
     }
+
+    e.preventDefault();
 
     await postArticle({ title, category, author, content });
 

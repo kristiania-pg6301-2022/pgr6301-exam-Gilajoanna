@@ -1,6 +1,6 @@
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import { ListArticles } from "../components/articles.jsx";
+import { AsideArticleList, ListArticles } from "../components/articles.jsx";
 import { act } from "react-dom/test-utils";
 
 describe("List articles component", () => {
@@ -27,11 +27,29 @@ describe("List articles component", () => {
     expect(element.innerHTML).toMatchSnapshot();
   });
 
-  it("shows error", async () => {
+  it("shows error in article list", async () => {
     const element = document.createElement("div");
     await act(async () => {
       ReactDOM.render(
         <ListArticles
+          listAllArticles={() => {
+            throw new Error("Something went wrong. Please try again.");
+          }}
+        />,
+        element
+      );
+    });
+    expect(element.querySelector("#error-message").innerHTML).toEqual(
+      "Something went wrong. Please try again."
+    );
+    expect(element.innerHTML).toMatchSnapshot();
+  });
+
+  it("shows error in aside article list", async () => {
+    const element = document.createElement("div");
+    await act(async () => {
+      ReactDOM.render(
+        <AsideArticleList
           listAllArticles={() => {
             throw new Error("Something went wrong. Please try again.");
           }}

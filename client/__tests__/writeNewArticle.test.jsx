@@ -1,11 +1,11 @@
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import { WriteNewArticle } from "../writeNewArticle";
+import { WriteNewArticle } from "../components/writeNewArticle";
 import { act, Simulate } from "react-dom/test-utils";
 import { AppContext } from "../globals/AppContext";
 
 describe("Write new article", () => {
-  it("shows new article form", async () => {
+  it("shows article form", async () => {
     const element = document.createElement("div");
     await act(async () => ReactDOM.render(<WriteNewArticle />, element));
     expect(element.innerHTML).toMatchSnapshot();

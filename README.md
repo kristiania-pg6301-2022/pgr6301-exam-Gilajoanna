@@ -5,40 +5,12 @@
  
 [![.github/workflows/verify.yaml](https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna/actions/workflows/verify.yaml/badge.svg)](https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna/actions/workflows/verify.yaml)
 
-## Plan for exam day 2
-* [x] Holy grail layout
-* [x] Anonymous user should see list in aside
-* [ ] Update existing article
-* [x] Delete article
-* [ ] Hard code admin user
-* [ ] Admin user permissions
-* [ ] Tests on client Login, profile, home page
-* [ ] Error handling?
-* [ ] Se över namn i koden
-* [ ] Ta bort kod du inte använder
-* [ ] Ändra färger på designen
+* [x] Gå igenom alla filer
+* [x] Se över namn i koden
+* [x] Ta bort kod du inte använder
+* [x] Ändra färger på designen
 * [ ] Skriv info i din readMe
 
-## Plan for exam day 1
-
-* [x] Setup React application
-* [x] Prettier
-* [x] React routing Articles
-* [x] Deploy to Heroku
-* [x] News article database - MongoDb
-  * [x] Server: connect to mongoDB, get articles
-  * [x] Client: List articles
-* [x] React routing Login
-* [x] Set up login in with Google
-* [x] Only logged-in user have access to profile, list articles and add
-
-* [ ] Refactor and clean up in code
-* [x] Server: post articles to database (insert)
-* [x] Client: Add new article, show new article
-* [x] Jest testing on client
-* [x] Github actions
-* [x] Jest testing on server
-* [x] Collect coverage
 
 ## Tips
 

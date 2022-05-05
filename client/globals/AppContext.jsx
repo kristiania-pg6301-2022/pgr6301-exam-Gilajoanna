@@ -23,9 +23,7 @@ export const AppContext = React.createContext({
   async registerLogout() {
     const response = await fetch("/api/login/logout", { method: "DELETE" });
     if (!response.ok) {
-      throw new Error(
-        `Failed to post ${response.status}: ${response.statusText}`
-      );
+      throw new Error(`Error: ${response.status}: ${response.statusText}`);
     }
   },
 });
