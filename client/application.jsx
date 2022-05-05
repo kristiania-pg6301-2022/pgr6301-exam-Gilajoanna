@@ -4,12 +4,13 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 import "./style.css";
 import { useLoader } from "./globals/useLoader";
-import { LoginPage } from "./login";
+import { LoginPage } from "./components/login";
 import { AppContext } from "./globals/AppContext";
-import { fetchJSON } from "./globals/fetchJSON";
 import { UserProfile } from "./components/userProfile";
 import { NotFound } from "./components/notFound";
-import { Articles, AsideArticleList, ListArticles } from "./articles";
+import { Articles } from "./components/articles";
+import { NonUser } from "./components/nonUser";
+import { HomePage } from "./components/homePage";
 
 function UserNavigation({ user }) {
   if (!user || Object.keys(user).length === 0) {
@@ -30,37 +31,6 @@ function UserNavigation({ user }) {
       </Link>
       <Link to={"/login/logout"}>Log out</Link>
     </div>
-  );
-}
-
-function HomePage({ user }) {
-  async function listAllArticles() {
-    return await fetchJSON("/api/articles");
-  }
-
-  if (!user) {
-    return <div>Please log in to have full access to articles.</div>;
-  }
-
-  return (
-    <>
-      <div>
-        <article>
-          <ListArticles listAllArticles={listAllArticles} />
-        </article>
-      </div>
-    </>
-  );
-}
-
-function NonUser() {
-  async function listAllArticles() {
-    return await fetchJSON("/api/articles");
-  }
-  return (
-    <article>
-      <AsideArticleList listAllArticles={listAllArticles} />
-    </article>
   );
 }
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { AppContext } from "./globals/AppContext.jsx";
+import { AppContext } from "../globals/AppContext.jsx";
 
 function Login({ config }) {
   return (

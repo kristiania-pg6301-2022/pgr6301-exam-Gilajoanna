@@ -1,6 +1,6 @@
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import { ListArticles } from "../articles.jsx";
+import { ListArticles } from "../components/articles.jsx";
 import { act } from "react-dom/test-utils";
 
 describe("List articles component", () => {

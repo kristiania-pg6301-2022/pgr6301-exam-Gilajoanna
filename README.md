@@ -12,9 +12,6 @@
 * [x] Delete article
 * [ ] Hard code admin user
 * [ ] Admin user permissions
-* [ ] Regular user permissions
-* [ ] Admin can delete an article
-* [ ] Tests on server LoginApi
 * [ ] Tests on client Login, profile, home page
 * [ ] Error handling?
 * [ ] Se över namn i koden
@@ -77,9 +74,9 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 * [x] Redaksjonelle brukere kan publisere nye nyhetsartikler
 * [ ] Nyhetsartikkel skal inneholde en kategori valgt fra en nedtrekksliste ( <select> ), tittel ( <input> ) og tekst ( <textarea> )
 * [ ] Dersom noen allerede har publisert en nyhetsartikkel med samme tittel skal serveren sende HTTP status kode 400 og en feilmelding
-* [ ] Brukeren skal forhindres fra å sende inn en nyhetsartikkel som mangler kategori, tittel eller tekst
+* [x] Brukeren skal forhindres fra å sende inn en nyhetsartikkel som mangler kategori, tittel eller tekst
 * [ ] En redaksjonell bruker skal kunne redigere en artikkel de selv har publisert
-* [ ] Alle feil fra serves skal presenteres til bruker på en pen måte, med mulighet for brukeren til å prøve igjen.
+* [x] Alle feil fra serves skal presenteres til bruker på en pen måte, med mulighet for brukeren til å prøve igjen.
 
 
 ## Må-krav til teknisk løsning

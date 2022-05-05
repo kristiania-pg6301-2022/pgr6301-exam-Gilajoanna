@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Route, Routes } from "react-router-dom";
-import { useLoader } from "./globals/useLoader";
-import { fetchJSON } from "./globals/fetchJSON";
+import { useLoader } from "../globals/useLoader";
+import { fetchJSON } from "../globals/fetchJSON";
 import { WriteNewArticle } from "./writeNewArticle";
-import { AppContext } from "./globals/AppContext";
+import { AppContext } from "../globals/AppContext";
 import { useContext } from "react";
 
 export function ArticleItem({

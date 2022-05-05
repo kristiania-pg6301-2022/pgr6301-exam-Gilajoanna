@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useContext, useState } from "react";
-import { AppContext } from "./globals/AppContext";
+import { AppContext } from "../globals/AppContext";
 
 function ArticleForm({ label, value, onChangeValue }) {
   return (
