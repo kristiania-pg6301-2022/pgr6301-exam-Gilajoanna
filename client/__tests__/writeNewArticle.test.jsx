@@ -32,12 +32,18 @@ describe("Write new article", () => {
     Simulate.change(element.querySelector("form div:nth-of-type(2) input"), {
       target: { value: "Test category" },
     });
+    Simulate.change(element.querySelector("form div:nth-of-type(3) input"), {
+      target: { value: "Test content" },
+    });
+    Simulate.change(element.querySelector("form div:nth-of-type(4) input"), {
+      target: { value: "Test author" },
+    });
     await act(async () => Simulate.submit(element.querySelector("form")));
     expect(postArticle).toBeCalledWith({
       title: "Test article",
       category: "Test category",
-      content: "",
-      author: "",
+      content: "Test content",
+      author: "Test author",
     });
   });
 });
