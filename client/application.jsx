@@ -42,11 +42,11 @@ function HomePage({ user }) {
     <div>
       {user && (
         <div>
-          <aside>
-            <Link to={"/articles/new"}>Write a new article</Link>
-          </aside>
           <main>
             <h1>Home page</h1>
+            <div>
+              <Link to={"/articles/new"}>Write a new article</Link>
+            </div>
             <article>
               <ListArticles listAllArticles={listAllArticles} />
             </article>

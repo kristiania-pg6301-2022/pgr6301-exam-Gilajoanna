@@ -47,6 +47,9 @@ export function ListArticles({ listAllArticles }) {
 }
 
 export function Articles() {
+  async function listAllArticles() {
+    return await fetchJSON("/api/articles");
+  }
   return (
     <Routes>
       <Route
