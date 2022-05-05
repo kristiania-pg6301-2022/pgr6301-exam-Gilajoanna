@@ -6,7 +6,7 @@ import { WriteNewArticle } from "./writeNewArticle";
 import { AppContext } from "./globals/AppContext";
 import { useContext } from "react";
 
-function ArticleItem({
+export function ArticleItem({
   article: { title, category, content, author },
   reload,
 }) {
