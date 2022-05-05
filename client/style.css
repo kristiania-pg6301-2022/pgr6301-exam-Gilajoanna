@@ -6,8 +6,8 @@ body {
     background: white;
     height: 100vh;
     display: grid;
+    grid-template-rows: min-content min-content 1fr min-content;
     grid-template-columns: minmax(10px, 1fr) minmax(10px, 3fr);
-    grid-template-rows: min-content;
     gap: 1px;
 }
 
@@ -21,11 +21,11 @@ nav {
     grid-column: 2 / 3;
     background: #bbdefb;
     text-align: end;
-    padding: 5px
+    padding: 5px;
 }
 
 nav a {
-    padding: 16px;
+    padding: 0 16px 0 13px;
  }
 
 aside {

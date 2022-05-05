@@ -13,10 +13,8 @@ function UserNavigation({ user }) {
   if (!user || Object.keys(user).length === 0) {
     return (
       <div>
+        <Link to={"/"}>Home</Link>
         <Link to={"/login"}>Login</Link>
-        <div>
-          <Link to={"/"}>Home page</Link>
-        </div>
       </div>
     );
   }
