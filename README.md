@@ -1,7 +1,19 @@
 # PG6301 eksamen <Express Yourself>
 
-[Heroku](https://pgr6301-exam-gilajoanna.herokuapp.com/)
+[Heroku](https://pgr6301-exam-gilajoanna.herokuapp.com)
 [Test rapport](link til testrapport)
+
+## Plan for exam day 2
+* [ ] Holy grail layout
+* [ ] Anonymous user should see list in aside
+* [ ] Update existing article
+* [ ] Hard code admin user
+* [ ] Admin user permissions
+* [ ] Regular user permissions
+* [ ] Admin can delete an article
+* [ ] Tests on server LoginApi
+* [ ] Tests on client Login, profile, home page
+* [ ] Error handling?
 
 ## Plan for exam day 1
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Articles } from "./articles";
+import { Articles, ListArticles } from "./articles";
 import { useContext } from "react";
 import { useLoader } from "./globals/useLoader";
 import { LoginPage } from "./login";
@@ -9,30 +9,48 @@ import { fetchJSON } from "./globals/fetchJSON";
 
 function UserActions({ user }) {
   if (!user || Object.keys(user).length === 0) {
-    return <Link to={"/login"}>Login</Link>;
+    return (
+      <div>
+        <Link to={"/login"}>Login</Link>
+      </div>
+    );
   }
 
   return (
     <div>
-      <Link to={"/profile"}>
-        {user.name ? `Profile for ${user.name}` : "Profile"}
-      </Link>
-      <Link to={"/login/logout"}>Log out</Link>
+      <div>
+        <Link to={"/"}>Home page</Link>
+      </div>
+      <div>
+        <Link to={"/profile"}>
+          {user.name ? `Profile for ${user.name}` : "Profile"}
+        </Link>
+      </div>
+      <div>
+        <Link to={"/login/logout"}>Log out</Link>
+      </div>
     </div>
   );
 }
 
 function HomePage({ user }) {
+  async function listAllArticles() {
+    return await fetchJSON("/api/articles");
+  }
+
   return (
     <div>
-      <h1>Home page</h1>
       {user && (
         <div>
-          <Link to={"/articles"}>All articles</Link>
-
-          <div>
+          <aside>
             <Link to={"/articles/new"}>Write a new article</Link>
-          </div>
+          </aside>
+          <main>
+            <h1>Home page</h1>
+            <article>
+              <ListArticles listAllArticles={listAllArticles} />
+            </article>
+          </main>
         </div>
       )}
     </div>
@@ -87,14 +105,15 @@ export function Application() {
   }
   return (
     <BrowserRouter>
-      {data.user && (
-        <div>
-          <Link to={"/"}>Home page</Link>
-        </div>
-      )}
       <div>
-        <UserActions user={data?.user} />
+        <header>
+          <h1>Express Yourself</h1>
+        </header>
+        <nav>
+          <UserActions user={data?.user} />
+        </nav>
       </div>
+
       <Routes>
         <Route path={"/"} element={<HomePage user={data?.user} />} />
         <Route path={"/articles/*"} element={<Articles />} />
