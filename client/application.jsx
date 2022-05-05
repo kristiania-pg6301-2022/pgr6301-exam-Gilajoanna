@@ -12,6 +12,9 @@ function UserActions({ user }) {
     return (
       <div>
         <Link to={"/login"}>Login</Link>
+        <div>
+          <Link to={"/"}>Home page</Link>
+        </div>
       </div>
     );
   }
@@ -19,9 +22,9 @@ function UserActions({ user }) {
   return (
     <div>
       <div>
-        <Link to={"/"}>Home page</Link>
-      </div>
-      <div>
+        <div>
+          <Link to={"/"}>Home page</Link>
+        </div>
         <Link to={"/profile"}>
           {user.name ? `Profile for ${user.name}` : "Profile"}
         </Link>
@@ -40,18 +43,19 @@ function HomePage({ user }) {
 
   return (
     <div>
+      <h1>Home page</h1>
+      <aside>
+        <h2>Non users</h2>
+      </aside>
       {user && (
-        <div>
-          <main>
-            <h1>Home page</h1>
-            <div>
-              <Link to={"/articles/new"}>Write a new article</Link>
-            </div>
-            <article>
-              <ListArticles listAllArticles={listAllArticles} />
-            </article>
-          </main>
-        </div>
+        <main>
+          <div>
+            <Link to={"/articles/new"}>Write a new article</Link>
+          </div>
+          <article>
+            <ListArticles listAllArticles={listAllArticles} />
+          </article>
+        </main>
       )}
     </div>
   );
