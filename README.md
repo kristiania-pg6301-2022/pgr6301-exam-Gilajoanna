@@ -67,7 +67,7 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 * [x] En bruker som er logget inn kan se på sin profilside (userinfo fra Google)
 * [x] Brukere skal forbli logget inn når de refresher websiden
 * [ ] En bruker som er logget inn kan klikke på en nyhetssak for å se detaljene om nyhetssaken. 
-  * [ ] Detaljene skal inkludere en nyhetskategori, overskrift, tekst og navn på den som publiserte den
+  * [x] Detaljene skal inkludere en nyhetskategori, overskrift, tekst og navn på den som publiserte den
 * [ ] "Redaksjonelle brukere" kan logge seg inn med Active Directory. Det må fungere å logge seg inn med en Active Directory på skolens AD ( domain_hint=egms.no )
 * [x] Redaksjonelle brukere kan publisere nye nyhetsartikler
 * [ ] Nyhetsartikkel skal inneholde en kategori valgt fra en nedtrekksliste ( <select> ), tittel ( <input> ) og tekst ( <textarea> )

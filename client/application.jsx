@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useContext } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Articles, AsideArticleList, ListArticles } from "./articles";
 
 import "./style.css";
 import { useLoader } from "./globals/useLoader";
@@ -10,6 +9,7 @@ import { AppContext } from "./globals/AppContext";
 import { fetchJSON } from "./globals/fetchJSON";
 import { UserProfile } from "./components/userProfile";
 import { NotFound } from "./components/notFound";
+import { Articles, AsideArticleList, ListArticles } from "./articles";
 
 function UserNavigation({ user }) {
   if (!user || Object.keys(user).length === 0) {
@@ -24,6 +24,8 @@ function UserNavigation({ user }) {
   return (
     <div>
       <Link to={"/"}>Articles</Link>
+      <Link to={"/articles/new"}>Write new article</Link>
+      <Link to={"/articles/update"}>Update article</Link>
       <Link to={"/profile"}>
         {user.name ? `Profile for ${user.name}` : "Profile"}
       </Link>
@@ -37,23 +39,17 @@ function HomePage({ user }) {
     return await fetchJSON("/api/articles");
   }
 
+  if (!user) {
+    return <div>Please log in to have full access to articles.</div>;
+  }
+
   return (
     <>
-      {!user && (
-        <div>
-          <div>Please log in to have access to articles.</div>
-        </div>
-      )}
-      {user && (
-        <div>
-          <div>
-            <Link to={"/articles/new"}>Write a new article</Link>
-          </div>
-          <article>
-            <ListArticles listAllArticles={listAllArticles} />
-          </article>
-        </div>
-      )}
+      <div>
+        <article>
+          <ListArticles listAllArticles={listAllArticles} />
+        </article>
+      </div>
     </>
   );
 }
@@ -88,20 +84,17 @@ export function Application() {
         <NonUser />
       </aside>
       <nav>
-        <UserNavigation user={data?.user} />
+        <UserNavigation user={data.user} />
       </nav>
       <main>
         <Routes>
-          <Route path={"/"} element={<HomePage user={data?.user} />} />
-          <Route path={"/articles/*"} element={<Articles />} />
+          <Route path={"/"} element={<HomePage user={data.user} />} />
+          <Route path={"/articles/*"} element={<Articles user={data.user} />} />
           <Route
             path={"/login/*"}
             element={<LoginPage config={data.config} reload={reload} />}
           />
-          <Route
-            path={"/profile"}
-            element={<UserProfile user={data?.user} />}
-          />
+          <Route path={"/profile"} element={<UserProfile user={data.user} />} />
           <Route path={"/*"} element={<NotFound />} />
         </Routes>
       </main>

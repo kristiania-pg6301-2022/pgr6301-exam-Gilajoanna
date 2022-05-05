@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { useLoader } from "./globals/useLoader";
 import { fetchJSON } from "./globals/fetchJSON";
 import { WriteNewArticle } from "./writeNewArticle";
@@ -19,7 +19,7 @@ function ArticleItem({ article: { title, category, content, author } }) {
   );
 }
 
-export function ListArticles({ listAllArticles }) {
+export function ListArticles({ listAllArticles, user }) {
   const { loading, data, error } = useLoader(listAllArticles);
 
   if (loading) {
@@ -40,7 +40,7 @@ export function ListArticles({ listAllArticles }) {
       <h1>List of articles</h1>
 
       {data.map((article) => (
-        <ArticleItem key={article.title} article={article} />
+        <ArticleItem key={article.title} article={article} user={user} />
       ))}
     </div>
   );
@@ -80,7 +80,14 @@ export function AsideArticleList({ listAllArticles }) {
   );
 }
 
-export function Articles() {
+function UpdateArticle() {
+  return <h2>Update article</h2>;
+}
+
+export function Articles({ user }) {
+  if (!user) {
+    return <div>Please log in to be authorized to this page.</div>;
+  }
   async function listAllArticles() {
     return await fetchJSON("/api/articles");
   }
@@ -88,9 +95,10 @@ export function Articles() {
     <Routes>
       <Route
         path={""}
-        element={<ListArticles listAllArticles={listAllArticles} />}
+        element={<ListArticles listAllArticles={listAllArticles} user={user} />}
       />
       <Route path={"new"} element={<WriteNewArticle />} />
+      <Route path={"update"} element={<UpdateArticle />} />
     </Routes>
   );
 }
