@@ -7,7 +7,7 @@
 
 ## Plan for exam day 2
 * [x] Holy grail layout
-* [ ] Anonymous user should see list in aside
+* [x] Anonymous user should see list in aside
 * [ ] Update existing article
 * [ ] Hard code admin user
 * [ ] Admin user permissions
@@ -61,7 +61,7 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 
 *beskriv eventuelle mangler eller problemer for delvis uttelling*
 
-* [ ] Anonyme brukere skal se nyhetsaker når de kommer til nettsiden. Legg inn noen nyhetssaker for å demonstrere
+* [x] Anonyme brukere skal se nyhetsaker når de kommer til nettsiden. Legg inn noen nyhetssaker for å demonstrere
 * [ ] Når en ny sak publiseres, skal alle brukerne få se den nye saken umiddelbart. Bruk websockets for å sende oppdateringer
 * [x] Brukere kan logge seg inn. Det anbefales at du implementerer at brukerne logger seg inn med Google, men andre mekanismer er også akseptabelt
 * [x] En bruker som er logget inn kan se på sin profilside (userinfo fra Google)
@@ -93,8 +93,8 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 * [x] Github Actions bør beregne testcoverage. Testdekningen bør være over 50%. Bruk collectCoverage för att inkludera alle filer. Kun genererte filer som coverage og dist skal ekskluderes.
 * [x] Vi har fått en rabattkode som gjør det mulig å benytter coveralls. Du kan bruke denne eller
 * [x] Brukeren ser kun menyvalg som de har tilgang til
-* [ ] Brukere som går til en side de ikke har tilgang til blir bedt om å logge inn 
-* [ ] Brukere bør alltid se listen over artikler når de navigerer seg rundt på sidene
+* [x] Brukere som går til en side de ikke har tilgang til blir bedt om å logge inn 
+* [x] Brukere bør alltid se listen over artikler når de navigerer seg rundt på sidene
 
 
 ## Egenutfylling av tekniske krav

@@ -15,6 +15,10 @@ export function UserProfile({ user }) {
     return <div>Error! {error.toString()}</div>;
   }
 
+  if (!user) {
+    return <div>You must be logged in to access your profile.</div>;
+  }
+
   return (
     <div>
       <h1>
