@@ -1,13 +1,15 @@
 import * as React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { Articles, ListArticles } from "./articles";
+
+import "./style.css";
 import { useContext } from "react";
 import { useLoader } from "./globals/useLoader";
 import { LoginPage } from "./login";
 import { AppContext } from "./globals/AppContext";
 import { fetchJSON } from "./globals/fetchJSON";
 
-function UserActions({ user }) {
+function UserNavigation({ user }) {
   if (!user || Object.keys(user).length === 0) {
     return (
       <div>
@@ -21,17 +23,11 @@ function UserActions({ user }) {
 
   return (
     <div>
-      <div>
-        <div>
-          <Link to={"/"}>Home page</Link>
-        </div>
-        <Link to={"/profile"}>
-          {user.name ? `Profile for ${user.name}` : "Profile"}
-        </Link>
-      </div>
-      <div>
-        <Link to={"/login/logout"}>Log out</Link>
-      </div>
+      <Link to={"/"}>Articles</Link>
+      <Link to={"/profile"}>
+        {user.name ? `Profile for ${user.name}` : "Profile"}
+      </Link>
+      <Link to={"/login/logout"}>Log out</Link>
     </div>
   );
 }
@@ -42,22 +38,18 @@ function HomePage({ user }) {
   }
 
   return (
-    <div>
-      <h1>Home page</h1>
-      <aside>
-        <h2>Non users</h2>
-      </aside>
+    <>
       {user && (
-        <main>
+        <div>
           <div>
             <Link to={"/articles/new"}>Write a new article</Link>
           </div>
           <article>
             <ListArticles listAllArticles={listAllArticles} />
           </article>
-        </main>
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -109,25 +101,30 @@ export function Application() {
   }
   return (
     <BrowserRouter>
-      <div>
-        <header>
-          <h1>Express Yourself</h1>
-        </header>
-        <nav>
-          <UserActions user={data?.user} />
-        </nav>
-      </div>
-
-      <Routes>
-        <Route path={"/"} element={<HomePage user={data?.user} />} />
-        <Route path={"/articles/*"} element={<Articles />} />
-        <Route
-          path={"/login/*"}
-          element={<LoginPage config={data.config} reload={reload} />}
-        />
-        <Route path={"/profile"} element={<UserProfile user={data?.user} />} />
-        <Route path={"/*"} element={<NotFound />} />
-      </Routes>
+      <header>
+        <h1>Express Yourself</h1>
+      </header>
+      <aside>
+        <h2>Non users</h2>
+      </aside>
+      <nav>
+        <UserNavigation user={data?.user} />
+      </nav>
+      <main>
+        <Routes>
+          <Route path={"/"} element={<HomePage user={data?.user} />} />
+          <Route path={"/articles/*"} element={<Articles />} />
+          <Route
+            path={"/login/*"}
+            element={<LoginPage config={data.config} reload={reload} />}
+          />
+          <Route
+            path={"/profile"}
+            element={<UserProfile user={data?.user} />}
+          />
+          <Route path={"/*"} element={<NotFound />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

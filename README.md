@@ -4,7 +4,7 @@
 [Test rapport](link til testrapport)
 
 ## Plan for exam day 2
-* [ ] Holy grail layout
+* [x] Holy grail layout
 * [ ] Anonymous user should see list in aside
 * [ ] Update existing article
 * [ ] Hard code admin user
