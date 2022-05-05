@@ -27,7 +27,7 @@ export function WriteNewArticle() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (title === "" || category === "" || author === "" || content === "") {
+    if (!title || !category || !author || !content) {
       alert("One or more inputs are empty. Please try again.");
     }
 

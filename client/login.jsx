@@ -6,7 +6,7 @@ import { AppContext } from "./globals/AppContext.jsx";
 function Login({ config }) {
   return (
     <div>
-      <h1>Login</h1>
+      <h2>Login to read articles</h2>
       <LoginButton label={"Login with Google"} config={config} />
     </div>
   );
@@ -15,15 +15,9 @@ function Login({ config }) {
 function LoginButton({ config, label }) {
   async function handleLogin() {
     const { authorization_endpoint, response_type, scope, client_id } = config;
-    /*
-        const state = randomString(30);
-        const loginState = { state };
-        sessionStorage.setItem("loginState", JSON.stringify(loginState));
-    */
     const params = {
       response_type,
       client_id,
-      //state,
       scope,
       redirect_uri: `${window.location.origin}/login/callback`,
     };
@@ -45,18 +39,9 @@ function LoginCallback({ reload }) {
   const { registerLogin } = useContext(AppContext);
 
   useEffect(async () => {
-    const { access_token, state } = Object.fromEntries(
+    const { access_token } = Object.fromEntries(
       new URLSearchParams(window.location.hash.substring(1))
     );
-    console.log(access_token);
-
-    /*
-        const loginState = JSON.parse(sessionStorage.getItem("loginState"));
-        if (!state || loginState.state !== state) {
-          setError("You do not have authorization");
-          return;
-        }
-         */
 
     if (access_token) {
       const response = await fetch("/api/login", {
@@ -83,7 +68,7 @@ function LoginCallback({ reload }) {
     return (
       <div>
         <h1>Error</h1>
-        <div>{error}</div>
+        <div>Something went wrong. Error: {error}</div>
       </div>
     );
   }

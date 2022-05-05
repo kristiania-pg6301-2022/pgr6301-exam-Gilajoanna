@@ -34,7 +34,7 @@ function ArticleItem({
   );
 }
 
-export function ListArticles({ listAllArticles, user }) {
+export function ListArticles({ listAllArticles }) {
   const { loading, data, error, reload } = useLoader(listAllArticles);
 
   if (loading) {
@@ -52,8 +52,6 @@ export function ListArticles({ listAllArticles, user }) {
 
   return (
     <div>
-      <h1>List of articles</h1>
-
       {data.map((article) => (
         <ArticleItem key={article.title} article={article} reload={reload} />
       ))}
@@ -64,13 +62,13 @@ export function ListArticles({ listAllArticles, user }) {
 export function AsideArticleItem({ article: { title } }) {
   return (
     <div>
-      <h2>{title}</h2>
+      <h3>{title}</h3>
     </div>
   );
 }
 
 export function AsideArticleList({ listAllArticles }) {
-  const { loading, data, error } = useLoader(listAllArticles);
+  const { loading, data, error, reload } = useLoader(listAllArticles);
 
   if (loading) {
     return <div>Please wait..</div>;
@@ -84,12 +82,17 @@ export function AsideArticleList({ listAllArticles }) {
       </div>
     );
   }
+
   return (
     <div>
-      <h1>List of articles</h1>
+      <h2>Latest news articles</h2>
 
       {data.map((article) => (
-        <AsideArticleItem key={article.title} article={article} />
+        <AsideArticleItem
+          key={article.title}
+          article={article}
+          reload={reload}
+        />
       ))}
     </div>
   );
@@ -106,7 +109,7 @@ export function Articles({ user }) {
     <Routes>
       <Route
         path={""}
-        element={<ListArticles listAllArticles={listAllArticles} user={user} />}
+        element={<ListArticles listAllArticles={listAllArticles} />}
       />
       <Route path={"new"} element={<WriteNewArticle />} />
     </Routes>
