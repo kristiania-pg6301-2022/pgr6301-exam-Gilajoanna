@@ -17,7 +17,6 @@ function ArticleForm({ label, value, onChangeValue }) {
 }
 
 export function WriteNewArticle() {
-  //const navigate = useNavigate();
   const { postArticle } = useContext(AppContext);
 
   const [title, setTitle] = useState("");
@@ -27,33 +26,42 @@ export function WriteNewArticle() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (title === "" || category === "" || author === "" || content === "") {
+      alert("One or more inputs are empty. Please try again.");
+    }
+
     await postArticle({ title, category, author, content });
 
     setTitle("");
     setCategory("");
     setAuthor("");
     setContent("");
-
-    //navigate("/");
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Write new article</h1>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <h1>Write new article</h1>
 
-      <ArticleForm label={"Title:"} value={title} onChangeValue={setTitle} />
-      <ArticleForm
-        label={"Category:"}
-        value={category}
-        onChangeValue={setCategory}
-      />
-      <ArticleForm
-        label={"Content:"}
-        value={content}
-        onChangeValue={setContent}
-      />
-      <ArticleForm label={"Author:"} value={author} onChangeValue={setAuthor} />
-      <button type={"submit"}>Publish</button>
-    </form>
+        <ArticleForm label={"Title:"} value={title} onChangeValue={setTitle} />
+        <ArticleForm
+          label={"Category:"}
+          value={category}
+          onChangeValue={setCategory}
+        />
+        <ArticleForm
+          label={"Content:"}
+          value={content}
+          onChangeValue={setContent}
+        />
+        <ArticleForm
+          label={"Author:"}
+          value={author}
+          onChangeValue={setAuthor}
+        />
+        <button type={"submit"}>Publish</button>
+      </form>
+    </div>
   );
 }

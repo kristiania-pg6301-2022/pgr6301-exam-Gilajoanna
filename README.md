@@ -9,6 +9,7 @@
 * [x] Holy grail layout
 * [x] Anonymous user should see list in aside
 * [ ] Update existing article
+* [x] Delete article
 * [ ] Hard code admin user
 * [ ] Admin user permissions
 * [ ] Regular user permissions
