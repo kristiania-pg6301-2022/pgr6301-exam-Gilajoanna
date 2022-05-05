@@ -1,6 +1,7 @@
 import * as React from "react";
 import { fetchJSON } from "./fetchJSON.jsx";
 import { postJSON } from "./postJSON.jsx";
+import { deleteJSON } from "./deleteJSON";
 
 export const AppContext = React.createContext({
   async fetchLogin() {
@@ -15,7 +16,11 @@ export const AppContext = React.createContext({
     await postJSON("/api/articles", article);
   },
 
-  async logout() {
+  async deleteArticle(title) {
+    await deleteJSON("/api/articles/delete", title);
+  },
+
+  async registerLogout() {
     const response = await fetch("/api/login/logout", { method: "DELETE" });
     if (!response.ok) {
       throw new Error(

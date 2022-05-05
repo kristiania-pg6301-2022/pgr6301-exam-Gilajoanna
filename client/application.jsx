@@ -25,7 +25,6 @@ function UserNavigation({ user }) {
     <div>
       <Link to={"/"}>Articles</Link>
       <Link to={"/articles/new"}>Write new article</Link>
-      <Link to={"/articles/update"}>Update article</Link>
       <Link to={"/profile"}>
         {user.name ? `Profile for ${user.name}` : "Profile"}
       </Link>

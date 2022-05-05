@@ -2,7 +2,7 @@ import * as React from "react";
 import { useContext, useState } from "react";
 import { AppContext } from "./globals/AppContext";
 
-function FormInput({ label, value, onChangeValue }) {
+function ArticleForm({ label, value, onChangeValue }) {
   return (
     <div>
       <label>{label}</label>{" "}
@@ -41,18 +41,18 @@ export function WriteNewArticle() {
     <form onSubmit={handleSubmit}>
       <h1>Write new article</h1>
 
-      <FormInput label={"Title:"} value={title} onChangeValue={setTitle} />
-      <FormInput
+      <ArticleForm label={"Title:"} value={title} onChangeValue={setTitle} />
+      <ArticleForm
         label={"Category:"}
         value={category}
         onChangeValue={setCategory}
       />
-      <FormInput
+      <ArticleForm
         label={"Content:"}
         value={content}
         onChangeValue={setContent}
       />
-      <FormInput label={"Author:"} value={author} onChangeValue={setAuthor} />
+      <ArticleForm label={"Author:"} value={author} onChangeValue={setAuthor} />
       <button type={"submit"}>Publish</button>
     </form>
   );

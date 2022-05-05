@@ -16,6 +16,10 @@
 * [ ] Tests on server LoginApi
 * [ ] Tests on client Login, profile, home page
 * [ ] Error handling?
+* [ ] Se över namn i koden
+* [ ] Ta bort kod du inte använder
+* [ ] Ändra färger på designen
+* [ ] Skriv info i din readMe
 
 ## Plan for exam day 1
 

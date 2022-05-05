@@ -3,8 +3,20 @@ import { Route, Routes } from "react-router-dom";
 import { useLoader } from "./globals/useLoader";
 import { fetchJSON } from "./globals/fetchJSON";
 import { WriteNewArticle } from "./writeNewArticle";
+import { AppContext } from "./globals/AppContext";
+import { useContext } from "react";
 
-function ArticleItem({ article: { title, category, content, author } }) {
+function ArticleItem({
+  article: { title, category, content, author },
+  reload,
+}) {
+  const { deleteArticle } = useContext(AppContext);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await deleteArticle({ title });
+    reload();
+  }
   return (
     <div>
       <h2>{title}</h2>
@@ -15,12 +27,15 @@ function ArticleItem({ article: { title, category, content, author } }) {
         Author: <i>{author}</i>
       </div>
       <div>{content}</div>
+      <button type={"submit"} onClick={handleSubmit}>
+        Delete Article
+      </button>
     </div>
   );
 }
 
 export function ListArticles({ listAllArticles, user }) {
-  const { loading, data, error } = useLoader(listAllArticles);
+  const { loading, data, error, reload } = useLoader(listAllArticles);
 
   if (loading) {
     return <div>Please wait..</div>;
@@ -40,7 +55,7 @@ export function ListArticles({ listAllArticles, user }) {
       <h1>List of articles</h1>
 
       {data.map((article) => (
-        <ArticleItem key={article.title} article={article} user={user} />
+        <ArticleItem key={article.title} article={article} reload={reload} />
       ))}
     </div>
   );
@@ -80,10 +95,6 @@ export function AsideArticleList({ listAllArticles }) {
   );
 }
 
-function UpdateArticle() {
-  return <h2>Update article</h2>;
-}
-
 export function Articles({ user }) {
   if (!user) {
     return <div>Please log in to be authorized to this page.</div>;
@@ -98,7 +109,6 @@ export function Articles({ user }) {
         element={<ListArticles listAllArticles={listAllArticles} user={user} />}
       />
       <Route path={"new"} element={<WriteNewArticle />} />
-      <Route path={"update"} element={<UpdateArticle />} />
     </Routes>
   );
 }

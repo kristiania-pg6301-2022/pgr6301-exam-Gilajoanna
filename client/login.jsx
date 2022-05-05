@@ -97,9 +97,9 @@ function LoginCallback({ reload }) {
 
 function LogOut({ reload }) {
   const navigate = useNavigate();
-  const { logout } = useContext(AppContext);
+  const { registerLogout } = useContext(AppContext);
   useEffect(async () => {
-    await logout();
+    await registerLogout();
     reload();
     navigate("/");
   });

@@ -3,7 +3,6 @@ import { fetchJSON } from "./fetchJSON.js";
 import fetch from "node-fetch";
 
 /******** CONFIGURATION ********/
-
 async function configuration() {
   const discovery_endpoint =
     "https://accounts.google.com/.well-known/openid-configuration";
@@ -39,9 +38,9 @@ async function fetchUserInfo(access_token, config) {
 }
 
 export function LoginApi() {
-  const router = new express.Router();
+  const apiRouter = new express.Router();
 
-  router.get("/", async (req, res) => {
+  apiRouter.get("/", async (req, res) => {
     const config = await configuration();
     const response = { config, user: {} };
     const { access_token } = req.signedCookies;
@@ -50,16 +49,16 @@ export function LoginApi() {
     res.json(response);
   });
 
-  router.post("/", (req, res) => {
+  apiRouter.post("/", (req, res) => {
     const { access_token } = req.body;
     res.cookie("access_token", access_token, { signed: true });
     res.sendStatus(200);
   });
 
-  router.delete("/logout", (req, res) => {
+  apiRouter.delete("/logout", (req, res) => {
     res.clearCookie("access_token");
     res.sendStatus(200);
   });
 
-  return router;
+  return apiRouter;
 }
