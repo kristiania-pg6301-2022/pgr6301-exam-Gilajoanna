@@ -46,6 +46,40 @@ export function ListArticles({ listAllArticles }) {
   );
 }
 
+export function AsideArticleItem({ article: { title } }) {
+  return (
+    <div>
+      <h2>{title}</h2>
+    </div>
+  );
+}
+
+export function AsideArticleList({ listAllArticles }) {
+  const { loading, data, error } = useLoader(listAllArticles);
+
+  if (loading) {
+    return <div>Please wait..</div>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h1>An error occurred</h1>
+        <div id="error-message">Something went wrong. Please try again.</div>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <h1>List of articles</h1>
+
+      {data.map((article) => (
+        <AsideArticleItem key={article.title} article={article} />
+      ))}
+    </div>
+  );
+}
+
 export function Articles() {
   async function listAllArticles() {
     return await fetchJSON("/api/articles");

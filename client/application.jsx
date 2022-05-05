@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useContext } from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { Articles, ListArticles } from "./articles";
+import { Articles, AsideArticleList, ListArticles } from "./articles";
 
 import "./style.css";
 import { useLoader } from "./globals/useLoader";
@@ -58,6 +58,17 @@ function HomePage({ user }) {
   );
 }
 
+function NonUser() {
+  async function listAllArticles() {
+    return await fetchJSON("/api/articles");
+  }
+  return (
+    <article>
+      <AsideArticleList listAllArticles={listAllArticles} />
+    </article>
+  );
+}
+
 export function Application() {
   const { fetchLogin } = useContext(AppContext);
   const { loading, error, data, reload } = useLoader(fetchLogin);
@@ -74,7 +85,7 @@ export function Application() {
         <h1>Express Yourself</h1>
       </header>
       <aside>
-        <h2>Non users</h2>
+        <NonUser />
       </aside>
       <nav>
         <UserNavigation user={data?.user} />
