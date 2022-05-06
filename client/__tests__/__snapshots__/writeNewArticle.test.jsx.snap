@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Write new article renders article form 1`] = `"<div><label></label> <input type=\\"text\\" name=\\"title\\" value=\\"\\"></div>"`;
+
+exports[`Write new article shows article form 1`] = `"<div><form><h1>Write new article</h1><div><label>Title:</label> <input type=\\"text\\" name=\\"title\\" value=\\"\\"></div><div><label>Category:</label> <input type=\\"text\\" name=\\"title\\" value=\\"\\"></div><div><label>Content:</label> <input type=\\"text\\" name=\\"title\\" value=\\"\\"></div><div><label>Author:</label> <input type=\\"text\\" name=\\"title\\" value=\\"\\"></div><button type=\\"submit\\">Publish</button></form></div>"`;

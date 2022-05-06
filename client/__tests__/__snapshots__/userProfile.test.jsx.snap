@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile component renders UserProfile 1`] = `"<div>Loading..</div>"`;
+
+exports[`UserProfile component shows error in user profile 1`] = `"<div id=\\"error-message\\">Error! ReferenceError: fetch is not defined</div>"`;
