@@ -8,8 +8,6 @@
 ## EXPRESS YOURSELF
 Min version av oppgaven där registrerade användare kan skriva egna och läsa andras opinions-artiklar!
 
-* [ ] Skriv info i din readMe
-
 
 ## Kode brukt från föreläsning
 * AppContext är inspirerat av Reference 12 MovieApiContext. Jag tyckte att denna var en god lösning för att spara linjer med kode och ha den globalt och enkelt tillgänglig för alla filer. 
@@ -36,7 +34,7 @@ Min version av oppgaven där registrerade användare kan skriva egna och läsa a
   *Grunnet lite ont om tid så är det bara implementerat en enkel grid layout för att uppfylla kravet om Holy Grail Layout.*
 
 ## Må-krav til teknisk løsning
-* [ ] Besvarelsen skal inneholde en README-fil med link til Heroku og test coverage. 
+* [x] Besvarelsen skal inneholde en README-fil med link til Heroku og test coverage. 
 * [x] npm start skal starte server og klient. Concurrently og parcel anbefales
 * [x] npm test skal kjøre tester. Testene skal ikke feile
 * [x] Koden skal ha konsistent formattering. Prettier og Husky anbefales
