@@ -5,50 +5,32 @@
  
 [![.github/workflows/verify.yaml](https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna/actions/workflows/verify.yaml/badge.svg)](https://github.com/kristiania-pg6301-2022/pgr6301-exam-Gilajoanna/actions/workflows/verify.yaml)
 
-* [x] Gå igenom alla filer
-* [x] Se över namn i koden
-* [x] Ta bort kod du inte använder
-* [x] Ändra färger på designen
+## EXPRESS YOURSELF
+Min version av oppgaven där registrerade användare kan skriva egna och läsa andras opinions-artiklar!
+
 * [ ] Skriv info i din readMe
 
 
-## Tips
-
-* Bruk versjoner av alle dependencies som vi brukte på forelesningene. Det skjer hele tiden endringer i JavaScript-land og noen ganger vil siste versjon oppføre seg forskjellig - ikke kast bort verdifull eksamenstid. Du kan kopiere package.json fra innlevering eller en øving
-* Spesielt: React 18 kom i løpet av semesteret. Alt vi har vist er på React 17. Kjør på React 17 nå med mindre du har brukt en del tid på versjon 18 den siste måneden. Det er vesentlige problemer!
-* Start med å løse det kritiske: Deployment til Heroku
-* Ikke bli sittende med ting du ikke får til mens det er enklere ting du kunne ha gjort. Spesielt tester har overraskende mye vrient med seg. Legg det til siden og løs andre ting om du har problemer
-* Les de funksjonelle kravene grundig og test at løsningen din oppfyller dem
-* Les læringsmålene beskrevet i eksamensteksten grundig og sjekk at løsningen din demonstrere at du behersker disse
-
-Dette er versjonene vi brukte under forelesningene om som er validert som ok:
-
-```
-"jest": "^27.5.1",
-"react": "^17.0.2",
-"react-dom": "^17.0.2",
-"react-router-dom": "^6.2.2"
-```
+## Kode brukt från föreläsning
+* AppContext är inspirerat av Reference 12 MovieApiContext. Jag tyckte att denna var en god lösning för att spara linjer med kode och ha den globalt och enkelt tillgänglig för alla filer. 
+* postJSON, fetchJSON, useLoader
+* Jag har sammarbetat med ett fåtal andra personer när jag gjorde min mock-examen. Denna har jag använt och modifierat kod ifrån.
 
 
 ## Egenutfylling av funksjonelle krav
 
-*beskriv eventuelle mangler eller problemer for delvis uttelling*
+* [x] Anonyme brukere skal se nyhetsaker når de kommer til nettsiden. Legg inn noen nyhetssaker for å demonstrere.
+  *Listan med nyhetstitlar till vänster syns också för brukere som inte är inloggade.* 
+  *Ett problem här är att den listan inte uppdaterar sig med mindre man refresher sidan när man har lagt till ny artikel* 
 
-* [x] Anonyme brukere skal se nyhetsaker når de kommer til nettsiden. Legg inn noen nyhetssaker for å demonstrere
-* [ ] Når en ny sak publiseres, skal alle brukerne få se den nye saken umiddelbart. Bruk websockets for å sende oppdateringer
-* [x] Brukere kan logge seg inn. Det anbefales at du implementerer at brukerne logger seg inn med Google, men andre mekanismer er også akseptabelt
-* [x] En bruker som er logget inn kan se på sin profilside (userinfo fra Google)
-* [x] Brukere skal forbli logget inn når de refresher websiden
-* [ ] En bruker som er logget inn kan klikke på en nyhetssak for å se detaljene om nyhetssaken. 
-  * [x] Detaljene skal inkludere en nyhetskategori, overskrift, tekst og navn på den som publiserte den
-* [ ] "Redaksjonelle brukere" kan logge seg inn med Active Directory. Det må fungere å logge seg inn med en Active Directory på skolens AD ( domain_hint=egms.no )
+* [x] En bruker som er logget inn kan klikke på en nyhetssak for å se detaljene om nyhetssaken.
+  *Det var tänkt att listan med artikel-titlar skulle haft en läs-knapp bruker skulle trycka på så visas enskild artikel. Jag fick bara implementerat att om man är inloggad bruker så har man tillgång till detaljerad artikel-lista.*
+
 * [x] Redaksjonelle brukere kan publisere nye nyhetsartikler
-* [ ] Nyhetsartikkel skal inneholde en kategori valgt fra en nedtrekksliste ( <select> ), tittel ( <input> ) og tekst ( <textarea> )
-* [ ] Dersom noen allerede har publisert en nyhetsartikkel med samme tittel skal serveren sende HTTP status kode 400 og en feilmelding
+  *I min lösning så fick jag inte till att hardkode in en admin bruker med särkilda permissions som att skriva, uppdatera och delete. Därför kan alla inloggade lägga till och ta bort artiklar.*
+
 * [x] Brukeren skal forhindres fra å sende inn en nyhetsartikkel som mangler kategori, tittel eller tekst
-* [ ] En redaksjonell bruker skal kunne redigere en artikkel de selv har publisert
-* [x] Alle feil fra serves skal presenteres til bruker på en pen måte, med mulighet for brukeren til å prøve igjen.
+  *Inte löst på bästa sätt då jag inte fick ut en error-melding i en ny div. Nu visas en Alert och bruker får inte lagt till i databasen.*
 
 
 ## Må-krav til teknisk løsning
@@ -63,32 +45,18 @@ Dette er versjonene vi brukte under forelesningene om som er validert som ok:
 * [x] Testene skal kjøre på Github Actions
 
 
-## Bør-krav til teknisk løsning
-* [x] Github Actions bør beregne testcoverage. Testdekningen bør være over 50%. Bruk collectCoverage för att inkludera alle filer. Kun genererte filer som coverage og dist skal ekskluderes.
-* [x] Vi har fått en rabattkode som gjør det mulig å benytter coveralls. Du kan bruke denne eller
-* [x] Brukeren ser kun menyvalg som de har tilgang til
-* [x] Brukere som går til en side de ikke har tilgang til blir bedt om å logge inn 
-* [x] Brukere bør alltid se listen over artikler når de navigerer seg rundt på sidene
-
-
 ## Egenutfylling av tekniske krav
 
 * [x] Oppsett av package.json, parcel, express, prettier
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
 * [x] React Router
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
 * [x] Express app
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
 * [x] Kommunikasjon mellom frontend (React) og backend (Express)
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
 * [x] Deployment til Heroku
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
 * [x] Bruk av MongoDB
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
+  * *Har inte fått till update av existerande document, men implementerat delete av document.*
 * [x] OpenID Connect
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
 * [ ] Web Sockets
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
+  * *Inte fått implementerat*
 * [x] Jest med dokumentert testdekning
-  * *beskriv eventuelle mangler eller problemer for delvis uttelling*
+  * *På grund av slut på minuter så kör inte mina tester längre i Github actions. Jag har lagt ved screenshots av gröna tester och av testdekkning.*
  

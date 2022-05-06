@@ -12,7 +12,7 @@ export function UserProfile({ user }) {
   }
 
   if (error) {
-    return <div>Error! {error.toString()}</div>;
+    return <div id={"error-message"}>Error! {error.toString()}</div>;
   }
 
   if (!user) {
