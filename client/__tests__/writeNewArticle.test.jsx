@@ -1,6 +1,6 @@
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import { WriteNewArticle } from "../components/writeNewArticle";
+import { ArticleForm, WriteNewArticle } from "../components/writeNewArticle";
 import { act, Simulate } from "react-dom/test-utils";
 import { AppContext } from "../globals/AppContext";
 
@@ -12,6 +12,12 @@ describe("Write new article", () => {
     expect(
       Array.from(element.querySelectorAll("form label")).map((e) => e.innerHTML)
     ).toEqual(["Title:", "Category:", "Content:", "Author:"]);
+  });
+
+  it("renders article form", () => {
+    const element = document.createElement("div");
+    ReactDOM.render(<ArticleForm />, element);
+    expect(element.innerHTML).toMatchSnapshot();
   });
 
   it("Post article on submit", async () => {

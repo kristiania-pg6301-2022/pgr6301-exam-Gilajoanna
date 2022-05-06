@@ -2,11 +2,18 @@ import * as ReactDOM from "react-dom";
 import * as React from "react";
 import { AsideArticleList, ListArticles } from "../components/articles.jsx";
 import { act } from "react-dom/test-utils";
+import { HomePage } from "../components/homePage";
 
 describe("List articles component", () => {
   it("renders ListArticle", () => {
     const element = document.createElement("div");
     ReactDOM.render(<ListArticles />, element);
+    expect(element.innerHTML).toMatchSnapshot();
+  });
+
+  it("renders article card", () => {
+    const element = document.createElement("div");
+    ReactDOM.render(<HomePage />, element);
     expect(element.innerHTML).toMatchSnapshot();
   });
 

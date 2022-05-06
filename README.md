@@ -32,6 +32,8 @@ Min version av oppgaven där registrerade användare kan skriva egna och läsa a
 * [x] Brukeren skal forhindres fra å sende inn en nyhetsartikkel som mangler kategori, tittel eller tekst
   *Inte löst på bästa sätt då jag inte fick ut en error-melding i en ny div. Nu visas en Alert och bruker får inte lagt till i databasen.*
 
+* Övriga kommentarer
+  *Grunnet lite ont om tid så är det bara implementerat en enkel grid layout för att uppfylla kravet om Holy Grail Layout.*
 
 ## Må-krav til teknisk løsning
 * [ ] Besvarelsen skal inneholde en README-fil med link til Heroku og test coverage. 

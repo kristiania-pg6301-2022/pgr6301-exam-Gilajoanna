@@ -2,6 +2,8 @@
 
 exports[`List articles component renders ListArticle 1`] = `"<div>Please wait..</div>"`;
 
+exports[`List articles component renders article card 1`] = `"<div>Please log in to have full access to articles.</div>"`;
+
 exports[`List articles component shows error in article list 1`] = `"<div><h1>An error occurred</h1><div id=\\"error-message\\">Something went wrong. Please try again.</div></div>"`;
 
 exports[`List articles component shows error in aside article list 1`] = `"<div><h1>An error occurred</h1><div id=\\"error-message\\">Something went wrong. Please try again.</div></div>"`;

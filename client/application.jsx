@@ -12,7 +12,7 @@ import { Articles } from "./components/articles";
 import { NonUser } from "./components/nonUser";
 import { HomePage } from "./components/homePage";
 
-function UserNavigation({ user }) {
+export function UserNavigation({ user }) {
   if (!user || Object.keys(user).length === 0) {
     return (
       <div>
