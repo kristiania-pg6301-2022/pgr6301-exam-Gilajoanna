@@ -7,6 +7,9 @@
 
 ## EXPRESS YOURSELF
 Min version av oppgaven där registrerade användare kan skriva egna och läsa andras opinions-artiklar!
+ 
+ ## OBS!
+ På grund av slut på minuter så kör inte mina tester längre i Github actions. Jag har lagt ved screenshots av gröna tester och av testdekkning i den zippade filen.
 
 
 ## Kode brukt från föreläsning
